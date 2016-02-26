@@ -72,6 +72,20 @@ $db_tbl_prefix = "mrbs_";
    to change the default configuration. Do _NOT_ modify systemdefaults.inc.php
    or areadefaults.inc.php.  */
 
+/*********************************
+ * Site identification information
+ *********************************/
+$mrbs_admin = "zhengzhijie";
+$mrbs_admin_email = "zhengzhijie@renrendai.com";
+
+$mrbs_company = "人人贷";
+
+/**********
+ * Language
+ **********/
+$disable_automatic_language_changing = 1;
+$default_language_tokens = "zh-cn";
+
 /********
  * user configuration
  ********/
@@ -79,3 +93,9 @@ $auth["user"]["zhengzhijie"] = "123456";
 $auth["user"]["zonglin"] = "123456";
 $auth["admin"][] = "zhengzhijie";
 $auth["admin"][] = "zonglin";
+
+
+// Allows bookings to be marked as "tentative", ie not yet 100% certain,
+// and confirmed later.   Useful if you want to reserve a slot but at the same
+// time let other people know that there's a possibility it may not be needed.
+$confirmation_enabled = false;
