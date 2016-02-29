@@ -55,8 +55,7 @@ $fields = sql_field_info($tbl_entry);
 $custom_fields = array();
 
 // Fill $edit_entry_field_order with not yet specified entries.
-$entry_fields = array('name', 'description', 'start_date', 'end_date', 'areas',
-                      'rooms', 'type', 'confirmation_status', 'privacy_status');
+$entry_fields = array('name', 'start_date', 'end_date', 'areas', 'rooms', 'confirmation_status', 'privacy_status', 'description');
                       
 foreach ($entry_fields as $field)
 {
@@ -1130,7 +1129,6 @@ foreach ($edit_entry_field_order as $key)
     break;
 
   case 'description':
-    create_field_entry_description();
     break;
 
   case 'start_date':
@@ -1183,9 +1181,6 @@ if (($edit_type == "series") && $repeats_allowed)
   // been demoted since the series was created).
   $disabled = ($edit_type != "series") || !$repeats_allowed;
   
-  echo "<fieldset id=\"rep_info\">\n";
-  echo "<legend></legend>\n";
-      
   // Repeat type
   echo "<div id=\"rep_type\">\n";
   $params = array('label'         => get_vocab("rep_type") . ":",
@@ -1194,7 +1189,7 @@ if (($edit_type == "series") && $repeats_allowed)
                   'disabled'      => $disabled,
                   'options'       => array(),
                   'force_assoc'   => TRUE);
-  foreach (array(REP_NONE, REP_DAILY, REP_WEEKLY, REP_MONTHLY, REP_YEARLY) as $i)
+  foreach (array(REP_NONE, REP_DAILY, REP_WEEKLY) as $i)
   {
     $params['options'][$i] = get_vocab("rep_type_$i");
   }
@@ -1336,7 +1331,16 @@ if (($edit_type == "series") && $repeats_allowed)
   echo "</fieldset>\n";
 }
     
-    ?>
+foreach ($edit_entry_field_order as $key)
+{
+  switch( $key )
+  {
+  case 'description':
+    create_field_entry_description();
+    break;
+  }
+}
+?>
     <input type="hidden" name="returl" value="<?php echo htmlspecialchars($returl) ?>">
     <input type="hidden" name="create_by" value="<?php echo htmlspecialchars($create_by)?>">
     <input type="hidden" name="rep_id" value="<?php echo $rep_id?>">

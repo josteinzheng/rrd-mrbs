@@ -91,11 +91,30 @@ $default_language_tokens = "zh-cn";
  ********/
 $auth["user"]["zhengzhijie"] = "123456";
 $auth["user"]["zonglin"] = "123456";
+$auth["user"]["user"] = "123456";
 $auth["admin"][] = "zhengzhijie";
 $auth["admin"][] = "zonglin";
 
+
+
+// The beginning of the first slot of the day (DEFAULT VALUES FOR NEW AREAS)
+$morningstarts         = 9;   // must be integer in range 0-23
+$morningstarts_minutes = 0;   // must be integer in range 0-59
+
+// The beginning of the last slot of the day (DEFAULT VALUES FOR NEW AREAS)
+$eveningends           = 19;  // must be integer in range 0-23
+$eveningends_minutes   = 00;   // must be integer in range 0-59
 
 // Allows bookings to be marked as "tentative", ie not yet 100% certain,
 // and confirmed later.   Useful if you want to reserve a slot but at the same
 // time let other people know that there's a possibility it may not be needed.
 $confirmation_enabled = false;
+
+$min_book_ahead_enabled = FALSE;    // set to TRUE to enforce a minimum advance booking time
+$max_book_ahead_enabled = true;    // set to TRUE to enforce a maximum advance booking time
+
+$min_book_ahead_secs = 0;           // (seconds) cannot book in the past
+$max_book_ahead_secs = 60*60*24*30*2;  // (seconds) no more than 60 days ahead
+
+
+$auth['only_admin_can_select_multiroom'] = true;
