@@ -107,7 +107,6 @@ echo "</table>\n";
 
 print $before_after_links_html;
 
-show_colour_key();
 // Draw the three month calendars
 if ($display_calendar && $display_calendar_bottom)
 {
