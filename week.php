@@ -38,7 +38,7 @@ echo make_area_select_html('week.php', $area, $year, $month, $day);
 echo make_room_select_html('week.php', $area, $room, $year, $month, $day);
 
 // Draw the three month calendars
-if (!$display_calendar_bottom)
+if ($display_calendar && !$display_calendar_bottom)
 {
   minicals($year, $month, $day, $area, $room, 'week');
 }
@@ -109,7 +109,7 @@ print $before_after_links_html;
 
 show_colour_key();
 // Draw the three month calendars
-if ($display_calendar_bottom)
+if ($display_calendar && $display_calendar_bottom)
 {
   minicals($year, $month, $day, $area, $room, 'week');
 }

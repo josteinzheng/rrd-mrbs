@@ -93,9 +93,6 @@ $auth["user"]["zhengzhijie"] = "123456";
 $auth["user"]["zonglin"] = "123456";
 $auth["user"]["user"] = "123456";
 $auth["admin"][] = "zhengzhijie";
-$auth["admin"][] = "zonglin";
-
-
 
 // The beginning of the first slot of the day (DEFAULT VALUES FOR NEW AREAS)
 $morningstarts         = 9;   // must be integer in range 0-23
@@ -118,3 +115,5 @@ $max_book_ahead_secs = 60*60*24*30*2;  // (seconds) no more than 60 days ahead
 
 
 $auth['only_admin_can_select_multiroom'] = true;
+
+$display_calendar = FALSE;
