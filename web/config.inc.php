@@ -75,9 +75,9 @@ $db_tbl_prefix = "mrbs_";
 /*********************************
  * Site identification information
  *********************************/
-$mrbs_admin = "zhengzhijie";
-$mrbs_admin_email = "zhengzhijie@renrendai.com";
-
+$mrbs_admin = "宗琳";
+$mrbs_admin_email = "zonglin@renrendai.com";
+$auth['admin'][] = 'zhengzhijie';
 $mrbs_company = "人人贷";
 
 /**********
@@ -85,14 +85,6 @@ $mrbs_company = "人人贷";
  **********/
 $disable_automatic_language_changing = 1;
 $default_language_tokens = "zh-cn";
-
-/********
- * user configuration
- ********/
-$auth["user"]["zhengzhijie"] = "123456";
-$auth["user"]["zonglin"] = "123456";
-$auth["user"]["user"] = "123456";
-$auth["admin"][] = "zhengzhijie";
 
 // The beginning of the first slot of the day (DEFAULT VALUES FOR NEW AREAS)
 $morningstarts         = 9;   // must be integer in range 0-23
@@ -126,3 +118,10 @@ $simple_trailer = true;
 
 // should areas be shown as a list or a drop-down select box?
 $area_list_format = "select";
+
+$auth["type"] = "imap";
+$imap_host = "owa.ucredit.com";
+// Use TLS
+$auth["imap_php"]["tls"] = TRUE;
+# The IMAP server ports in the same order as the hosts
+$imap_port = "143";
