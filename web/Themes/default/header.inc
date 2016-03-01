@@ -82,10 +82,6 @@ function print_theme_header($day, $month, $year, $area, $room)
   {
     echo "<h1>" . get_vocab("not_php3") . "</h1>\n";
   }
-  if (!empty($locale_warning))
-  {
-    echo "[Warning: ".$locale_warning."]";
-  }
 ?>
 
   <table id="banner">
