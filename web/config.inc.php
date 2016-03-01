@@ -117,3 +117,12 @@ $max_book_ahead_secs = 60*60*24*30*2;  // (seconds) no more than 60 days ahead
 $auth['only_admin_can_select_multiroom'] = true;
 
 $display_calendar = FALSE;
+
+
+// Trailer type.   FALSE gives a trailer complete with links to days, weeks and months before
+// and after the current date.    TRUE gives a simpler trailer that just has links to the
+// current day, week and month.
+$simple_trailer = true;
+
+// should areas be shown as a list or a drop-down select box?
+$area_list_format = "select";
