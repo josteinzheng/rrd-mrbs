@@ -16,7 +16,7 @@
 # (3) If you add new fields then you should also change the global variable
 #     $standard_fields.   Note that if you are just adding custom fields for
 #     a single site then this is not necessary.
-
+DROP TABLE mrbs_area;
 CREATE TABLE mrbs_area
 (
   id                        int NOT NULL auto_increment,
@@ -59,6 +59,7 @@ CREATE TABLE mrbs_area
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE mrbs_room;
 CREATE TABLE mrbs_room
 (
   id               int NOT NULL auto_increment,
@@ -75,6 +76,7 @@ CREATE TABLE mrbs_room
   KEY idxSortKey (sort_key)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE mrbs_entry;
 CREATE TABLE mrbs_entry
 (
   id             int NOT NULL auto_increment,
@@ -103,6 +105,7 @@ CREATE TABLE mrbs_entry
   KEY idxEndTime   (end_time)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE mrbs_repeat;
 CREATE TABLE mrbs_repeat
 (
   id             int NOT NULL auto_increment,
@@ -132,6 +135,7 @@ CREATE TABLE mrbs_repeat
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE mrbs_variables;
 CREATE TABLE mrbs_variables
 (
   id               int NOT NULL auto_increment,
@@ -141,6 +145,7 @@ CREATE TABLE mrbs_variables
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE mrbs_zoneinfo;
 CREATE TABLE mrbs_zoneinfo
 (
   id                 int NOT NULL auto_increment,
@@ -152,6 +157,7 @@ CREATE TABLE mrbs_zoneinfo
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE mrbs_users;
 CREATE TABLE mrbs_users
 (
   /* The first four fields are required. Don't remove. */
