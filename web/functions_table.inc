@@ -862,7 +862,7 @@ function day_table_innerhtml($day, $month, $year, $room, $area, $timetohighlight
       $header_inner .= "<th data-room=\"" . $row['id'] . "\" style=\"width: $column_width%\">
                         <a href=\"week.php?year=$year&amp;month=$month&amp;day=$day&amp;area=$area&amp;room=".$row['id']."\"
                         title=\"" . get_vocab("viewweek") . " &#10;&#10;".$row['description']."\">" .
-                        htmlspecialchars($row['room_name']) . ($row['capacity'] > 0 ? " (".$row['capacity'].")" : "") . "</a></th>";
+                        htmlspecialchars($row['room_name']) . ($row['capacity'] > 0 ? " (容纳".$row['capacity']."人)" : "") . "</a></th>";
       $rooms[] = $row['id'];
     }
   

@@ -36,6 +36,8 @@
 //$timezone = "Europe/London";
 $timezone = "Asia/Shanghai";
 
+$strftime_format['date']         = "%Y-%m-%d %A" ;  // Used in Day view
+$strftime_format['monthyear']    = "%B %Y";        // Used in Month view
 
 /*******************
  * Database settings
