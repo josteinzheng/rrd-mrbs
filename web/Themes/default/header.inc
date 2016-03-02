@@ -193,19 +193,21 @@ function print_theme_header($day, $month, $year, $area, $room)
         $query_str .= "&amp;room=$room";
       }
       
-      echo "<td>\n";
-      echo "<a href=\"help.php?$query_str\">" . get_vocab("help") . "</a>\n";
-      echo "</td>\n";
-      
-      echo "<td>\n";
-      echo "<a href=\"admin.php?$query_str\">" . get_vocab("rooms") . "</a>\n";
-      echo "</td>\n";
-      
-      echo "<td>\n";
-      echo "<a href=\"report.php?$query_str\">" . get_vocab("report") . "</a>\n";
-      echo "</td>\n";
+      if ($is_admin) {
+        echo "<td>\n";
+        echo "<a href=\"help.php?$query_str\">" . get_vocab("help") . "</a>\n";
+        echo "</td>\n";
+
+        echo "<td>\n";
+        echo "<a href=\"admin.php?$query_str\">" . get_vocab("rooms") . "</a>\n";
+        echo "</td>\n";
+
+        echo "<td>\n";
+        echo "<a href=\"report.php?$query_str\">" . get_vocab("report") . "</a>\n";
+        echo "</td>\n";
+      }
       ?>
-      
+      <!--
       <td>
         <form id="header_search" method="get" action="search.php">
           <div>
@@ -227,6 +229,7 @@ function print_theme_header($day, $month, $year, $area, $room)
           </div>
         </form>
       </td>
+    -->
       <?php
       // For session protocols that define their own logon box...
       if (function_exists('PrintLogonBox'))

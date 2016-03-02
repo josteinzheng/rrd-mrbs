@@ -13,7 +13,7 @@ $header_font_color              = "#ffffff";    // font color for text in header
 $highlight_font_color           = "#ff0066";    // used for highlighting text (eg links, errors)
 $colour_key_font_color          = $standard_font_color;    // used in the colour key table
 
-$banner_back_color              = "#4b667b";    // background colour for banner
+$banner_back_color              = "#254f7c";    // background colour for banner
 $banner_border_color            = $body_background_color;    // border colour for banner
 $banner_font_color              = $header_font_color;       // font colour for banner
 
@@ -96,11 +96,11 @@ $series_entry_back_color   = "#FFFCDA"; // background colour for entries in a se
 $pending_control_color     = "#FFF36C"; // background colour for the series +/- controls in pending.php
     
 // ***** DIMENSIONS *******************
-$banner_border_width          = '0';  // (px)  border width for the outside of the banner
-$banner_border_cell_width     = '1';  // (px)  border width for the cells of the banner
-$main_table_border_width      = '0';  // (px)  border width for the outside of the main day/week/month tables    
-$main_table_cell_border_width = '1';  // (px)  border width for the cells of the main day/week/month tables
-$main_cell_height             = '17'; // (px)  height of the cells in the main day/week tables
+$banner_border_width          = '1';  // (px)  border width for the outside of the banner
+$banner_border_cell_width     = '2';  // (px)  border width for the cells of the banner
+$main_table_border_width      = '1';  // (px)  border width for the outside of the main day/week/month tables    
+$main_table_cell_border_width = '2';  // (px)  border width for the cells of the main day/week/month tables
+$main_cell_height             = '25'; // (px)  height of the cells in the main day/week tables
          
     
 // ***** FONTS ************************    
