@@ -97,6 +97,11 @@ function create_details_body($data, $as_html=FALSE, $keep_private=FALSE, $room_d
   
   $tbody = '';
   $tbody .= ($as_html) ? "<tbody>\n" : "";
+  // Department
+  $tbody .= create_details_row(get_vocab("entry.department"), $data['department'], $as_html);
+  // Created by
+  $class = ($keep_private && $is_private_field['entry.create_by']) ? "private" : "";
+  $tbody .= create_details_row(get_vocab("createdby"), $data['booker_name'], $as_html, $class);
   // Description
   $class = ($keep_private & $is_private_field['entry.description']) ? "private" : "";
   $tbody .= create_details_row(get_vocab("description"), $data['description'], $as_html, $class);
@@ -145,9 +150,6 @@ function create_details_body($data, $as_html=FALSE, $keep_private=FALSE, $room_d
   $type = get_type_vocab($data['type']);
   $value = (empty($type)) ? "?${data['type']}?" : $type;
   $tbody .= create_details_row(get_vocab("type"), $value, $as_html);
-  // Created by
-  $class = ($keep_private && $is_private_field['entry.create_by']) ? "private" : "";
-  $tbody .= create_details_row(get_vocab("createdby"), $data['create_by'], $as_html, $class);
   // Modified by
   $class = ($keep_private && $is_private_field['entry.modified_by']) ? "private" : "";
   $tbody .= create_details_row(get_vocab("modifiedby"), $data['modified_by'], $as_html, $class);

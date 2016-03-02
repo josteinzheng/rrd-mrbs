@@ -684,7 +684,9 @@ function generate_simple_input($params)
     // no HTML escaping for the label - it is trusted
     $html .= "<label for=\"" . $params['name'] . "\"";
     $html .= (empty($params['label_title'])) ? '' : ' title="' . htmlspecialchars($params['label_title']) . '"';
-    $html .= ">" . $params['label'] . "</label>\n";
+    $html .= ($params['mandatory']) 
+              ? ">*" . $params['label'] . "</label>\n"
+              : ">" . $params['label'] . "</label>\n";
   }
   $html .= "<input";
   $html .= (isset($params['type'])) ? " type=\"" . $params['type'] . "\"" : "";

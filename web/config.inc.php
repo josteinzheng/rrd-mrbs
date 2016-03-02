@@ -127,3 +127,12 @@ $imap_host = "owa.ucredit.com";
 $auth["imap_php"]["tls"] = TRUE;
 # The IMAP server ports in the same order as the hosts
 $imap_port = "143";
+
+
+$is_private_field['entry.name'] = false;
+$is_private_field['entry.description'] = false;
+$is_private_field['entry.create_by'] = false;
+$is_mandatory_field['entry.department'] = true;
+$is_mandatory_field['entry.booker_name'] = true;
+$vocab_override['zh-cn']['entry.department'] = "预订部门";
+$vocab_override['zh-cn']['entry.booker_name'] = "预订人姓名";

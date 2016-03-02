@@ -1205,9 +1205,9 @@ init = function(args) {
   var form = document.getElementById('main');
   if (form)
   { 
-    if (form.name && (form.name.value.length === 0))
+    if (form.f_department && (form.f_department.value.length === 0))
     {
-      form.name.focus();
+      form.f_department.focus();
     }
     
     adjustSlotSelectors();

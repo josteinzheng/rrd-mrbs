@@ -55,7 +55,8 @@ $fields = sql_field_info($tbl_entry);
 $custom_fields = array();
 
 // Fill $edit_entry_field_order with not yet specified entries.
-$entry_fields = array('name', 'start_date', 'end_date', 'areas', 'rooms', 'confirmation_status', 'privacy_status', 'description');
+$entry_fields = array('department', 'booker_name', 'name', 'start_date', 'end_date', 
+                      'areas', 'rooms', 'confirmation_status', 'privacy_status', 'description');
                       
 foreach ($entry_fields as $field)
 {
