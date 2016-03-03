@@ -126,7 +126,7 @@ function map_add_booking ($row, &$column, $am7, $pm7)
     // if it's a multiple booking also fill in the name and description
     if ($n > 0)
     {
-      $column[$s][$n]["data"] = $row['name'];
+      $column[$s][$n]["data"] = $row['name']." | ".$row['department']." | ".$row['booker_name'];
       $column[$s][$n]["long_descr"] = $row['entry_description'];
       $column[$s][$n]["create_by"] = $row['entry_create_by'];
       $column[$s][$n]["room_id"] = $row['room_id'];
@@ -241,7 +241,7 @@ function map_add_booking ($row, &$column, $am7, $pm7)
   // slot for the booking (provided it's not a multiple booking slot)
   if (!isset($column[$first_slot][1]["id"]))
   {
-    $column[$first_slot][0]["data"]       = $row['name'];
+    $column[$first_slot][0]["data"]       = $row['name']." | ".$row['department']." | ".$row['booker_name'];
     $column[$first_slot][0]["long_descr"] = $row['entry_description'];
     $column[$first_slot][0]["create_by"]  = $row['entry_create_by']; 
     $column[$first_slot][0]["room_id"]    = $row['room_id']; 
@@ -750,7 +750,9 @@ function day_table_innerhtml($day, $month, $year, $room, $area, $timetohighlight
   $sql = "SELECT R.id AS room_id, start_time, end_time, name, repeat_id,
                  E.id AS entry_id, type,
                  E.description AS entry_description, status,
-                 E.create_by AS entry_create_by
+                 E.create_by AS entry_create_by,
+                 E.department,
+                 E.booker_name
             FROM $tbl_entry E, $tbl_room R
            WHERE E.room_id = R.id
              AND R.area_id = $area
@@ -1088,7 +1090,8 @@ function week_table_innerhtml($day, $month, $year, $room, $area, $timetohighligh
   {
     $sql = "SELECT room_id, start_time, end_time, type, name, status, repeat_id,
                    id AS entry_id, description AS entry_description,
-                   create_by AS entry_create_by
+                   create_by AS entry_create_by,
+                   department, booker_name
               FROM $tbl_entry
              WHERE room_id = $room
                AND start_time <= $pm7[$j] AND end_time > $am7[$j]
