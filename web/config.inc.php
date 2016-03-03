@@ -80,6 +80,7 @@ $db_tbl_prefix = "mrbs_";
 $mrbs_admin = "宗琳";
 $mrbs_admin_email = "zonglin@renrendai.com";
 $auth['admin'][] = 'zhengzhijie';
+$auth['admin'][] = 'zonglin';
 $mrbs_company = "人人贷";
 
 /**********
