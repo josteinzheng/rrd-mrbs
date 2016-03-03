@@ -97,64 +97,6 @@ function create_details_body($data, $as_html=FALSE, $keep_private=FALSE, $room_d
   
   $tbody = '';
   $tbody .= ($as_html) ? "<tbody>\n" : "";
-  // Department
-  $tbody .= create_details_row(get_vocab("entry.department"), $data['department'], $as_html);
-  // Created by
-  $class = ($keep_private && $is_private_field['entry.create_by']) ? "private" : "";
-  $tbody .= create_details_row(get_vocab("createdby"), $data['booker_name'], $as_html, $class);
-  // Description
-  $class = ($keep_private & $is_private_field['entry.description']) ? "private" : "";
-  $tbody .= create_details_row(get_vocab("description"), $data['description'], $as_html, $class);
-  // Confirmation status
-  if ($confirmation_enabled)
-  {
-    $value = ($data['status'] & STATUS_TENTATIVE) ? get_vocab("tentative") : get_vocab("confirmed");
-    $tbody .= create_details_row(get_vocab("confirmation_status"), $value, $as_html);
-  }
-  // Approval status
-  if ($approval_enabled)
-  {
-    $value = ($data['status'] & STATUS_AWAITING_APPROVAL) ? get_vocab("awaiting_approval") : get_vocab("approved");
-    $tbody .= create_details_row(get_vocab("approval_status"), $value, $as_html);
-  }
-  // Room
-  $value = $data['area_name'] . " - " . $data['room_name'];
-  if ($room_disabled)
-  {
-    $value .= " (" . get_vocab("disabled") . ")";
-  }
-  $tbody .= create_details_row(get_vocab("room"), $value, $as_html);
-  // Start date
-  if ($enable_periods)
-  {
-    list($start_period, $start_date) =  period_date_string($data['start_time']);
-  }
-  else
-  {
-    $start_date = time_date_string($data['start_time']);
-  }
-  $tbody .= create_details_row(get_vocab("start_date"), $start_date, $as_html);
-  // Duration
-  $tbody .= create_details_row(get_vocab("duration"), $data['duration'] . " " . get_vocab($data['dur_units']), $as_html);
-  // End date
-  if ($enable_periods)
-  {
-    list( , $end_date) =  period_date_string($data['end_time'], -1);
-  }
-  else
-  {
-    $end_date = time_date_string($data['end_time']);
-  }
-  $tbody .= create_details_row(get_vocab("end_date"), $end_date, $as_html);
-  // Type
-  $type = get_type_vocab($data['type']);
-  $value = (empty($type)) ? "?${data['type']}?" : $type;
-  $tbody .= create_details_row(get_vocab("type"), $value, $as_html);
-  // Modified by
-  $class = ($keep_private && $is_private_field['entry.modified_by']) ? "private" : "";
-  $tbody .= create_details_row(get_vocab("modifiedby"), $data['modified_by'], $as_html, $class);
-  // Last updated
-  $tbody .= create_details_row(get_vocab("lastupdate"), time_date_string($data['last_updated']), $as_html);
   // The custom fields
   $fields = sql_field_info($tbl_entry);
   foreach ($fields as $field)
@@ -204,6 +146,64 @@ function create_details_body($data, $as_html=FALSE, $keep_private=FALSE, $room_d
       $tbody .= create_details_row($label, $value, $as_html, $class);
     }
   }
+
+  // Description
+  $class = ($keep_private & $is_private_field['entry.description']) ? "private" : "";
+  $tbody .= create_details_row(get_vocab("description"), $data['description'], $as_html, $class);
+  // Confirmation status
+  if ($confirmation_enabled)
+  {
+    $value = ($data['status'] & STATUS_TENTATIVE) ? get_vocab("tentative") : get_vocab("confirmed");
+    $tbody .= create_details_row(get_vocab("confirmation_status"), $value, $as_html);
+  }
+  // Approval status
+  if ($approval_enabled)
+  {
+    $value = ($data['status'] & STATUS_AWAITING_APPROVAL) ? get_vocab("awaiting_approval") : get_vocab("approved");
+    $tbody .= create_details_row(get_vocab("approval_status"), $value, $as_html);
+  }
+  // Room
+  $value = $data['area_name'] . " - " . $data['room_name'];
+  if ($room_disabled)
+  {
+    $value .= " (" . get_vocab("disabled") . ")";
+  }
+  $tbody .= create_details_row(get_vocab("room"), $value, $as_html);
+  // Start date
+  if ($enable_periods)
+  {
+    list($start_period, $start_date) =  period_date_string($data['start_time']);
+  }
+  else
+  {
+    $start_date = time_date_string($data['start_time']);
+  }
+  $tbody .= create_details_row(get_vocab("start_date"), $start_date, $as_html);
+  // Duration
+  $tbody .= create_details_row(get_vocab("duration"), $data['duration'] . " " . get_vocab($data['dur_units']), $as_html);
+  // End date
+  if ($enable_periods)
+  {
+    list( , $end_date) =  period_date_string($data['end_time'], -1);
+  }
+  else
+  {
+    $end_date = time_date_string($data['end_time']);
+  }
+  $tbody .= create_details_row(get_vocab("end_date"), $end_date, $as_html);
+  // Type
+  $type = get_type_vocab($data['type']);
+  $value = (empty($type)) ? "?${data['type']}?" : $type;
+  $tbody .= create_details_row(get_vocab("type"), $value, $as_html);
+  // Created by
+  $class = ($keep_private && $is_private_field['entry.create_by']) ? "private" : "";
+  $tbody .= create_details_row(get_vocab("createdby"), $data['create_by'], $as_html, $class);
+  // Modified by
+  $class = ($keep_private && $is_private_field['entry.modified_by']) ? "private" : "";
+  $tbody .= create_details_row(get_vocab("modifiedby"), $data['modified_by'], $as_html, $class);
+  // Last updated
+  $tbody .= create_details_row(get_vocab("lastupdate"), time_date_string($data['last_updated']), $as_html);
+  
   // Repeat type
   $tbody .= create_details_row(get_vocab("rep_type"), get_vocab("rep_type_" . $data['rep_type']), $as_html);
   // Repeat details
