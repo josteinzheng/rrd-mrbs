@@ -106,7 +106,7 @@ $min_book_ahead_enabled = FALSE;    // set to TRUE to enforce a minimum advance 
 $max_book_ahead_enabled = true;    // set to TRUE to enforce a maximum advance booking time
 
 $min_book_ahead_secs = 0;           // (seconds) cannot book in the past
-$max_book_ahead_secs = 60*60*24*30*2;  // (seconds) no more than 60 days ahead
+$max_book_ahead_secs = 60*60*24*30;  // (seconds) no more than 30 days ahead
 
 
 $auth['only_admin_can_select_multiroom'] = true;
@@ -137,3 +137,5 @@ $is_mandatory_field['entry.department'] = true;
 $is_mandatory_field['entry.booker_name'] = true;
 $vocab_override['zh-cn']['entry.department'] = "预订部门";
 $vocab_override['zh-cn']['entry.booker_name'] = "预订人姓名";
+
+$mail_settings['organizer'] = '';
