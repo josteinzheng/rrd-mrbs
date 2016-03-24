@@ -77,10 +77,12 @@ $db_tbl_prefix = "mrbs_";
 /*********************************
  * Site identification information
  *********************************/
+$auth['only_admin_can_book'] = TRUE;
 $mrbs_admin = "宗琳";
 $mrbs_admin_email = "zonglin@renrendai.com";
 $auth['admin'][] = 'zhengzhijie';
 $auth['admin'][] = 'zonglin';
+$auth['admin'][] = 'liujiajia';
 $mrbs_company = "人人贷";
 
 /**********
