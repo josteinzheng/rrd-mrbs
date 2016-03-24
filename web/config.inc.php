@@ -136,6 +136,6 @@ $is_private_field['entry.create_by'] = false;
 $is_mandatory_field['entry.department'] = true;
 $is_mandatory_field['entry.booker_name'] = true;
 $vocab_override['zh-cn']['entry.department'] = "预订部门";
-$vocab_override['zh-cn']['entry.booker_name'] = "预订人姓名";
+$vocab_override['zh-cn']['entry.booker_name'] = "会议组织者";
 
 $mail_settings['organizer'] = '';

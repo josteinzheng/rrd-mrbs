@@ -917,21 +917,10 @@ function create_ical_event($method, $data, $addresses=NULL, $series=FALSE)
   */
   
   // ORGANIZER
-  // The organizer is MRBS.   We don't make the create_by user the organizer because there
-  // are some mail systems such as IBM Domino that silently discard the email notification
-  // if the organizer's email address is the same as the recipient's - presumably because
-  // they assume that the recipient already knows about the event.
+  if (isset($data['booker_name'])) {
+    $results[] = "ORGANIZER:" . $data['booker_name'];
+  }
 
-  $organizer = parse_address($mail_settings['organizer']);
-  if (empty($organizer['common_name']))
-  {
-    $organizer['common_name'] = get_mail_vocab('mrbs');
-  }
-  
-  if (!empty($organizer['address']))
-  {
-    $results[] = "ORGANIZER;CN=\"" . ical_escape_quoted_string($organizer['common_name']) . "\":mailto:" . $organizer['address'];
-  }
   
   // Put the people on the "to" list as required participants and those on the cc
   // list as non particpants.   In theory the email client can then decide whether
