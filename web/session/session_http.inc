@@ -110,7 +110,6 @@ function PrintLogonBox()
   else
   {
 ?>
-    <a href=""><?php echo get_vocab('unknown_user'); ?></a>
     <form method="post" action="admin.php">
       <div>
         <input type="hidden" name="TargetURL" value="<?php echo htmlspecialchars($TargetURL) ?>">
