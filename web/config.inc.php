@@ -140,3 +140,10 @@ $vocab_override['zh-cn']['entry.department'] = "预订部门";
 $vocab_override['zh-cn']['entry.booker_name'] = "会议组织者";
 
 $mail_settings['organizer'] = '';
+
+// Set a maximum duration for bookings
+$max_duration_enabled = TRUE; // Set to TRUE if you want to enforce a maximum duration
+$max_duration_secs = 60*60*3;  // (seconds) - when using "times"
+
+$max_per_interval_global_enabled['week']   = TRUE;
+$max_per_interval_global['week'] = 4;     // max 4 bookings per week in total
