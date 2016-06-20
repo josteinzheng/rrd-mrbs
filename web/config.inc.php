@@ -124,7 +124,7 @@ $simple_trailer = true;
 $area_list_format = "select";
 
 $auth["type"] = "imap";
-$imap_host = "owa.ucredit.com";
+$imap_host = "mail.we.com";
 // Use TLS
 $auth["imap_php"]["tls"] = TRUE;
 # The IMAP server ports in the same order as the hosts
