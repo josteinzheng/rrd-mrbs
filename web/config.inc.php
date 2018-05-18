@@ -79,8 +79,9 @@ $db_tbl_prefix = "mrbs_";
  *********************************/
 #$auth['only_admin_can_book'] = TRUE;
 $mrbs_admin = "行政部";
-$mrbs_admin_email = "admin_rrd@renrendai.com";
+$mrbs_admin_email = "admin_rrd@youxin.com";
 $auth['admin'][] = 'zhengzhijie';
+$auth['admin'][] = 'xuaoran';
 $auth['admin'][] = 'admin_rrd';
 $mrbs_company = "人人贷";
 
